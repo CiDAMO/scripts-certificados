@@ -13,7 +13,7 @@ function main()
     I = indexin(emails, presenca[!, "Email Address"])
     M = findall(I .=== nothing)
     append!(perdidos, emails[M])
-    I = findall(I .!== nothing)
+    I = I[findall(I .!== nothing)]
     presenca[I, "horas"] .+= pesos[i]
   end
   I = findall(presenca.horas .> 0)
